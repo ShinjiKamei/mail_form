@@ -1,3 +1,10 @@
 $ rails new mail_form -d mysql
 
+config/database.yml
+
+railsuser
+railspass
+
+mysql> grant all on *.* to 'railsuser'@'localhost';
+
 
