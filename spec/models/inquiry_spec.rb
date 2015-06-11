@@ -9,6 +9,7 @@ describe Inquiry do
   
   it { should respond_to(:name) }
   it { should respond_to(:email) }
+  it { should respond_to(:category) }
   it { should respond_to(:content) }
   
   it { should be_valid }
@@ -48,6 +49,11 @@ describe Inquiry do
         expect(@inquiry).to be_valid
       end
     end
+  end
+  
+  describe "when category is not present" do
+    before { @inquiry.category_id = nil }
+    it { should_not be_valid }
   end
   
   describe "when content is not present" do

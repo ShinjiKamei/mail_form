@@ -4,6 +4,10 @@ FactoryGirl.define do
     name    "Shinji Kamei"
     email   "example@railstutorial.com"
     content "How is it?"
+    category_id 1
+  end
+  factory :category do
+    id 1
   end
 end
 

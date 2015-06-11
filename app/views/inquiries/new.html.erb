@@ -11,6 +11,9 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
 
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => true %>
+
       <%= f.label :content %>
       <%= f.text_area :content %>
 

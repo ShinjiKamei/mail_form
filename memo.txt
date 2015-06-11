@@ -5,6 +5,12 @@ config/database.yml
 railsuser
 railspass
 
+
+mysql -u railsuser -p
+enterpassword
+
+
+
 mysql> grant all on *.* to 'railsuser'@'localhost';
 
-
+mysql> use mail_form_dev
