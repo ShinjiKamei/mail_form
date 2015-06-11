@@ -3,6 +3,7 @@ ja:
   attributes:
     name: 名前
     email: メールアドレス
+    category_id: カテゴリー
     category: カテゴリー
     content: 内容
   date:

@@ -6,7 +6,8 @@ class InquiriesController < ApplicationController
   def create
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
-      # 保存の成功をここで扱う。
+      flash[:success] = "お問合せを受付けました。"
+      redirect_to root_path
     else
       render 'new'
     end

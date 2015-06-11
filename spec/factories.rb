@@ -8,6 +8,7 @@ FactoryGirl.define do
   end
   factory :category do
     id 1
+    name "ご注文方法"
   end
 end
 
