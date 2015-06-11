@@ -5,34 +5,9 @@
 
 html {
 /*overflow-y: scroll;*/
+  -webkit-text-size-adjust: 100%;
   font-size : 100%;
 }
-
-/* カスタム, iPhone Retinaディスプレイ */ 
-@media only screen and (min-width : 320px) {
-  html{ font-size : 200%;}
-}
- 
-/* XSサイズ : Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-  html{ font-size : 200%;}
-}
- 
-/* Sサイズ、タブレット : Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-  html{ font-size : 87.5%;}
-}
- 
-/* Mサイズ、デスクトップ : Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-  html{ font-size : 100%;}
-}
- 
-/* Lサイズ、ワイドスクリーン : Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-  html{ font-size : 100%;}
-}
-
 
 body {
   padding-top: 3em;
