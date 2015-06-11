@@ -137,7 +137,8 @@ ja:
     select:
       prompt: 選択してください。
     submit:
-      create: 登録する
+      confirm: 確認する
+      create: 送信する
       submit: 保存する
       update: 更新する
   number:
