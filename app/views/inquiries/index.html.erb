@@ -3,27 +3,13 @@
 
 <div class="row">
   <div class="span5">
-    <ul class="inquiries">
-      <% @inquiries.each do |inquiry| %>
-        <li>
-          <p>
-            <%= inquiry.name %>(<%= mail_to inquiry.email %>)
-            <br>
-            <%= inquiry.created_at.to_s %>
-          </p>
-          <p>
-            <strong><%= @categories[inquiry.category_id].name %></strong>
-            <br>
-            <%= inquiry.content %>
-            <br>
-            <%= link_to "削除", inquiry, method: :delete,
-                                    data: { confirm: "削除しますか？" } %>
-          </p>
-        </li>
-      <% end %>
-    </ul>
+    <% if @inquiries.any? %>
+      <ul class="inquiries">
+        <%= render partial: 'inquiry_item', collection: @inquiries, object: @categories %>
+      </ul>
+    <% end %>
     
-    <%= will_paginate %>
+    <%= will_paginate @inquiries %>
   </div>
   <div class="span7"></div>
 </div>
