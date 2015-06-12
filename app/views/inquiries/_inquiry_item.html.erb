@@ -1,4 +1,4 @@
-
+<% if !inquiry_item.nil? %>
 <li id="<%= inquiry_item.id %>">
   <p>
     <%= inquiry_item.name %>(<%= mail_to inquiry_item.email %>)
@@ -14,3 +14,4 @@
                             data: { confirm: "削除しますか？" } %>
   </p>
 </li>
+<% end %>
