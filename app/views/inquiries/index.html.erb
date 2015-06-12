@@ -6,14 +6,19 @@
     <ul class="inquiries">
       <% @inquiries.each do |inquiry| %>
         <li>
-          <%= inquiry.name %>(<%= mail_to inquiry.email %>)
-          </br>
-          <%= inquiry.created_at.to_s %>
-          </br>
-          <%= inquiry.content %>
-          </br>
-          <%= link_to "削除", inquiry, method: :delete,
-                                  data: { confirm: "削除しますか？" } %>
+          <p>
+            <%= inquiry.name %>(<%= mail_to inquiry.email %>)
+            <br>
+            <%= inquiry.created_at.to_s %>
+          </p>
+          <p>
+            <strong><%= @categories[inquiry.category_id].name %></strong>
+            <br>
+            <%= inquiry.content %>
+            <br>
+            <%= link_to "削除", inquiry, method: :delete,
+                                    data: { confirm: "削除しますか？" } %>
+          </p>
         </li>
       <% end %>
     </ul>

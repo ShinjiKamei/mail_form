@@ -15,6 +15,7 @@ class InquiriesController < ApplicationController
   
   def index
     @inquiries = Inquiry.order(created_at: :asc).paginate(page: params[:page])
+    @categories = Category.all
   end
   
   def destroy
