@@ -4,6 +4,8 @@ class Inquiry < ActiveRecord::Base
   
   has_one :category
   
+  self.per_page = 10
+  
   validates(:name,        presence: true, length: { maximum: 50 })
   validates(:email,       presence: true, format: { with: VALID_EMAIL_REGEX })
   validates(:content,     presence: true, length: { maximum: 500 })

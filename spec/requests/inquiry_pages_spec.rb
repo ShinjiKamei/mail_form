@@ -37,11 +37,52 @@ describe "Inquiry pages" do
         expect { click_button submit }.to change(Inquiry, :count).by(1)
       end
     end
-
     
   end
   
-  
+  describe "Index page" do
+    before do
+      FactoryGirl.create(:category)
+      FactoryGirl.create(:inquiry)
+      visit inquiries_path
+    end
+    
+    it { should have_title('お問合せ一覧') }
+    it { should have_content('お問合せ一覧') }
+    
+    it "should list each inquiry" do
+      Inquiry.all.each do |iq|
+        expect(page).to have_selector('li', text: iq.name)
+      end
+    end
+    
+    describe "pagination" do
+      
+      before(:all) { 30.times { FactoryGirl.create(:inquiry) } }
+      after(:all)  { Inquiry.delete_all }
+      
+      it { should have_selector('div.pagination') }
+      
+      it "should list each inquiry" do
+        Inquiry.paginate(page: 1).each do |iq|
+          expect(page).to have_selector('li', text: iq.name)
+        end
+      end
+    end
+
+    describe "delete links" do
+      let(:delete) { "削除" }
+
+      it { should have_link(delete, href: inquiry_path(Inquiry.first)) }
+      it "should be able to delete an inquiry" do
+        expect do
+          click_link(delete, match: :first)
+        end.to change(Inquiry, :count).by(-1)
+      end
+    
+    end
+
+  end
   
 end
 

@@ -14,7 +14,8 @@
       <%= f.text_field :email %>
 
       <%= f.label :category %>
-      <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => true %>
+      <%= f.collection_select :category_id, Category.all, :id, :name %>
+      <%# f.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
 
       <%= f.label :content %>
       <%= f.text_area :content %>

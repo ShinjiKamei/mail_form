@@ -1,0 +1,25 @@
+<% provide(:title, 'お問合せ一覧') %>
+<h1>お問合せ一覧</h1>
+
+<div class="row">
+  <div class="span5">
+    <ul class="inquiries">
+      <% @inquiries.each do |inquiry| %>
+        <li>
+          <%= inquiry.name %>(<%= mail_to inquiry.email %>)
+          </br>
+          <%= inquiry.created_at.to_s %>
+          </br>
+          <%= inquiry.content %>
+          </br>
+          <%= link_to "削除", inquiry, method: :delete,
+                                  data: { confirm: "削除しますか？" } %>
+        </li>
+      <% end %>
+    </ul>
+    
+    <%= will_paginate %>
+  </div>
+  <div class="span7"></div>
+</div>
+

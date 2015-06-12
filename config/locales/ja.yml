@@ -6,6 +6,9 @@ ja:
     category_id: カテゴリー
     category: カテゴリー
     content: 内容
+  will_paginate:
+    previous_label: "&#8592;"
+    next_label: "&#8594;"
   date:
     abbr_day_names:
     - 日

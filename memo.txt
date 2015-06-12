@@ -14,3 +14,19 @@ enterpassword
 mysql> grant all on *.* to 'railsuser'@'localhost';
 
 mysql> use mail_form_dev
+
+
+
+git add .
+git commit -am "Message"
+git push -u origin master
+git push heroku master
+
+rake db:reset
+rake db:migrate
+rake db:populate
+rake db:test:prepare
+heroku pg:reset DATABASE
+heroku run rake db:migrate
+heroku run rake db:populate
+

@@ -13,6 +13,15 @@ class InquiriesController < ApplicationController
     end
   end
   
+  def index
+    @inquiries = Inquiry.order(created_at: :asc).paginate(page: params[:page])
+  end
+  
+  def destroy
+    Inquiry.find(params[:id]).destroy
+    flash[:success] = "削除しました。"
+    redirect_to inquiries_url
+  end
   
   private
     def inquiry_params
