@@ -4,6 +4,10 @@ module InquiriesHelper
   def wrap(content)
     sanitize(raw(content.split.map{ |s| wrap_long_string(s) }.join(' ')))
   end
+  
+  def cat_name(id)
+    Category.find(id).name
+  end
 
   private
 

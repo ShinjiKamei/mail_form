@@ -6,7 +6,7 @@
     <%= inquiry_item.created_at.to_s %>
   </p>
   <p>
-    <strong><%= @categories[inquiry_item.category_id].name %></strong>
+    <strong><%= cat_name(inquiry_item.category_id) %></strong>
     <br>
     <%= wrap(inquiry_item.content) %>
     <br>

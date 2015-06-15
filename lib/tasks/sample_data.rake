@@ -21,13 +21,13 @@ def make_inquiries
                   category_id: 3,
                   content: "質問があります。")
   33.times do |n|
-    name     = Faker::Name.name
-    email    = "example-#{n+1}@foo.com"
-    category = Random.rand(1 .. 5)
-    content  = Faker::Lorem.sentence(10)
+    name        = Faker::Name.name
+    email       = "example-#{n+1}@foo.com"
+    category_id = Random.rand(1 .. 5)
+    content     = Faker::Lorem.sentence(10)
     Inquiry.create!(name: name,
                  email: email,
-                 category_id: category,
+                 category_id: category_id,
                  content: content)
   end
 end
