@@ -96,10 +96,17 @@ footer ul li {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input, textarea, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   padding: 1em;
+  margin-bottom: 1em;
+  @include box_sizing;
+}
+
+select {
+  border: 1px solid #bbb;
+  width: 100%;
   margin-bottom: 1em;
   @include box_sizing;
 }

@@ -5,7 +5,7 @@
   <div class="span5">
     <% if @inquiries.any? %>
       <ul class="inquiries">
-        <%= render partial: 'inquiry_item', collection: @inquiries, object: @categories %>
+        <%= render partial: 'inquiry_item', collection: @inquiries %>
       </ul>
     <% end %>
     

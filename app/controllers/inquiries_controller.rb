@@ -1,6 +1,7 @@
 class InquiriesController < ApplicationController
   def new
     @inquiry = Inquiry.new
+    @categories = Category.all
   end
 
   def create
@@ -9,13 +10,14 @@ class InquiriesController < ApplicationController
       flash[:success] = "お問合せを受付けました。"
       redirect_to root_path
     else
+      @categories = Category.all
       render 'new'
     end
   end
   
   def index
     @inquiries = Inquiry.order(created_at: :asc).paginate(page: params[:page])
-    @categories = Category.all
+    #@categories = Category.all
   end
   
   def destroy
