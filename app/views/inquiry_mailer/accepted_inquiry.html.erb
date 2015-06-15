@@ -1,0 +1,14 @@
+<%= @inquiry.name %> 様<br>
+ 
+お問合せを受付けました。<br>
+回答までしばらくお待ち下さい。<br>
+
+-------------------------<br>
+
+<%= @inquiry.created_at.to_s %><br>
+
+<%# cat_name(@inquiry.category_id) %>
+[お問合せ内容]<br>
+<%= wrap(simple_format(@inquiry.content)) %>
+
+

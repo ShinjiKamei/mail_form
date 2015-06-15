@@ -8,6 +8,8 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
       flash[:success] = "お問合せを受付けました。"
+      @mail = InquiryMailer.accepted_inquiry(@inquiry)
+      @mail.deliver
       redirect_to root_path
     else
       @categories = Category.all
