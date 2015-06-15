@@ -1,6 +1,6 @@
-# Ruby on Rails デモアプリケーション
+# Ruby on Rails 繝�繝｢繧｢繝励Μ繧ｱ繝ｼ繧ｷ繝ｧ繝ｳ
 
 
-[*This is the demo application of mail form.*]
+[*This is the demo application of mailing form.*]
 by [Shinji Kamei]
 
