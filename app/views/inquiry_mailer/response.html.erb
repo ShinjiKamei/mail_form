@@ -1,0 +1,16 @@
+<%= @inquiry.name %> 様<br>
+ 
+下記の通り回答致します。<br>
+再度お問合せの際は、本メールの件名を変えずにご返信下さい。<br>
+
+------------------------------<br>
+
+<%= @response.created_at.to_s %><br>
+[回答]<br>
+<%= wrap(simple_format(@response.content)) %>
+
+<%= @inquiry.created_at.to_s %><br>
+[お問合せ内容]<br>
+<%= wrap(simple_format(@inquiry.content)) %>
+
+

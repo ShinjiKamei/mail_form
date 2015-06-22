@@ -11,6 +11,7 @@ describe Inquiry do
   it { should respond_to(:email) }
   it { should respond_to(:category) }
   it { should respond_to(:content) }
+  it { should respond_to(:responses) }
   
   it { should be_valid }
 
@@ -65,5 +66,26 @@ describe Inquiry do
     before { @inquiry.content = "a" * 501 }
     it { should_not be_valid }
   end
+  
+  describe "response associations" do
+
+    before { @inquiry.save }
+    let!(:older_response) do
+      FactoryGirl.create(:response, inquiry: @inquiry, created_at: 1.day.ago)
+    end
+    let!(:newer_response) do
+      FactoryGirl.create(:response, inquiry: @inquiry, created_at: 1.hour.ago)
+    end
+
+    it "should destroy associated responses" do
+      responses = @inquiry.responses.to_a
+      @inquiry.destroy
+      expect(responses).not_to be_empty
+      responses.each do |response|
+        expect(Response.where(id: response.id)).to be_empty
+      end
+    end
+  end
+
   
 end

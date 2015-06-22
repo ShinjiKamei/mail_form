@@ -4,6 +4,7 @@ namespace :db do
   task populate: :environment do
     make_categories
     make_inquiries
+    make_responses
   end
 end
 
@@ -30,5 +31,11 @@ def make_inquiries
                  category_id: category_id,
                  content: content)
   end
+end
+
+def make_responses
+  Response.create!(inquiry_id: 1, content: "回答１")
+  Response.create!(inquiry_id: 1, content: "質問２")
+  Response.create!(inquiry_id: 1, content: "回答２")
 end
 

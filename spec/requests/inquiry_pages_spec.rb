@@ -84,6 +84,27 @@ describe "Inquiry pages" do
 
   end
   
+  
+  describe "inquiry page" do
+    before do
+      FactoryGirl.create(:category)
+      @inquiry = FactoryGirl.create(:inquiry)
+      @r1 = FactoryGirl.create(:response, inquiry: @inquiry, content: "Foo")
+      @r2 = FactoryGirl.create(:response, inquiry: @inquiry, content: "Bar")
+      visit inquiry_path(@inquiry)
+    end
+
+    it { should have_content(@inquiry.name) }
+
+    describe "responses" do
+      it { should have_content(@r1.content) }
+      it { should have_content(@r2.content) }
+      #it { should have_content(@inquiry.responses.count) }
+    end
+  end
+
+  
+  
 end
 
 

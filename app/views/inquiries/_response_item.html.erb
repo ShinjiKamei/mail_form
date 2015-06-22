@@ -1,0 +1,11 @@
+<li id="<%= response_item.id %>">
+  <p>
+    <%= response_item.created_at.to_s %>
+  </p>
+  <p>
+    <%= wrap(simple_format(response_item.content)) %>
+    <br>
+    <%= link_to "削除", response_item, method: :delete,
+                            data: { confirm: "削除しますか？" } %>
+  </p>
+</li>

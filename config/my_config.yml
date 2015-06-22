@@ -1,0 +1,14 @@
+COMMON: &COMMON
+  author: "Shinji Kamei"
+  ruby-gmail:
+    user: "kameshin0722@gmail.com"
+    pass: "kameshin"
+development:
+  hoge: "dev"
+  <<: *COMMON
+production:
+  hoge: "pro"
+  <<: *COMMON
+test:
+  hoge: "test"
+  <<: *COMMON

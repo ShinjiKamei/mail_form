@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611075832) do
+ActiveRecord::Schema.define(version: 20150616015509) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -30,5 +30,14 @@ ActiveRecord::Schema.define(version: 20150611075832) do
 
   add_index "inquiries", ["created_at"], name: "index_inquiries_on_created_at", using: :btree
   add_index "inquiries", ["email", "created_at"], name: "index_inquiries_on_email_and_created_at", using: :btree
+
+  create_table "responses", force: true do |t|
+    t.string   "content"
+    t.integer  "inquiry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["inquiry_id"], name: "index_responses_on_inquiry_id", using: :btree
 
 end

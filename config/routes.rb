@@ -2,8 +2,8 @@
 MailForm::Application.routes.draw do
   #get "static_pages/home"
   
-  #resources :users
-  resources :inquiries, only: [:new, :create, :index, :destroy]
+  resources :inquiries, only: [:new, :create, :index, :show, :destroy]
+  resources :responses, only: [:create, :destroy]
   
   root 'inquiries#new'
   #match '/help',    to: 'static_pages#help',    via: 'get'

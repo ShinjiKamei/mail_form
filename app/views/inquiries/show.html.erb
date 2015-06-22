@@ -1,0 +1,35 @@
+<% provide(:title, 'お問合せ') %>
+<h1>お問合せ</h1>
+
+<div class="row">
+  <div class="span5">
+    <p>
+      <%= @inquiry.name %>(<%= @inquiry.email %>)
+      <br>
+      <%= @inquiry.created_at.to_s %>
+    </p>
+    <p>
+      <strong><%= cat_name(@inquiry.category_id) %></strong>
+      <br>
+      <%= wrap(simple_format(@inquiry.content)) %>
+    </p>
+    <p>
+    <%= form_for(@response) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <%= f.label :content, "回答" %>
+      <%= f.text_area :content %>
+      <%= f.submit id: "create", class: "btn btn-large btn-primary", 
+                                 :data => {:disable_with => "送信中..."}  %>
+      <%= f.hidden_field :inquiry_id, :value => @inquiry.id %>
+    <% end %>
+    </p>
+    <% if @responses.any? %>
+      <ul class="responses">
+        <%= render partial: 'response_item', collection: @responses %>
+      </ul>
+    <% end %>
+    
+  </div>
+  <div class="span7"></div>
+</div>
+

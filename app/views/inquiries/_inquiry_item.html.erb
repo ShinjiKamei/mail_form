@@ -3,7 +3,8 @@
   <p>
     <%= inquiry_item.name %>(<%= mail_to inquiry_item.email %>)
     <br>
-    <%= inquiry_item.created_at.to_s %>
+    受信：<%= inquiry_item.created_at.to_s %>　
+    更新：<%= inquiry_item.updated_at.to_s %>
   </p>
   <p>
     <strong><%= cat_name(inquiry_item.category_id) %></strong>
@@ -12,6 +13,7 @@
     <br>
     <%= link_to "削除", inquiry_item, method: :delete,
                             data: { confirm: "削除しますか？" } %>
+    <%= link_to "詳細", inquiry_item, method: :get %>
   </p>
 </li>
 <% end %>

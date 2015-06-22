@@ -3,13 +3,16 @@
 
 <div class="row">
   <div class="span5">
+    
+    <%= will_paginate %>
+    
     <% if @inquiries.any? %>
       <ul class="inquiries">
         <%= render partial: 'inquiry_item', collection: @inquiries %>
       </ul>
     <% end %>
     
-    <%= will_paginate @inquiries %>
+    <%= will_paginate %>
   </div>
   <div class="span7"></div>
 </div>

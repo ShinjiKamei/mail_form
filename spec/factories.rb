@@ -11,6 +11,12 @@ FactoryGirl.define do
     id 1
     name "ご注文方法"
   end
+  factory :response do
+    content "下記の通り回答します。。。。"
+    inquiry
+  end
+
+
 
 =begin
   factory :inquiry do
